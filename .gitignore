@@ -143,3 +143,5 @@ dmypy.json
 
 # private
 accounts/
+data/
+natsume.json
