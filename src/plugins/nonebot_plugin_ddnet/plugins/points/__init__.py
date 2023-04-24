@@ -36,7 +36,7 @@ async def _(player_name: str = ArgPlainText()):
             async with session.get(config.points_url + quote(player_name)) as response:
                 json = await response.json()
                 if json:
-                    await points_cmd.finish(json["points"])
+                    await points_cmd.finish("# {player_name}\n分数: {points};\n排名: {rank}.".format(**json["points"], player_name=player_name))
                 else:
                     await points_cmd.finish(f"player {player_name} cannot be found.")
     except MatcherException:
